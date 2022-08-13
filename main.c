@@ -25,7 +25,7 @@ int main()
             write(STDOUT_FILENO, "$ ", 2);
         }
 
-        chars_read = getline(&buffer, &buff_size, stdin);
+        chars_read = getline(&buffer, &buf_size, stdin);
 
         if (chars_read != EOF){
             command = split(buffer);
