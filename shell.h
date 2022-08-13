@@ -12,7 +12,7 @@
 #include <fcntl.h>
 #include <signal.h>
 
-/* 
+/*
  * Builtin Struct
  * struct builtins_s - Struct for builtins names to the function
  * @name: Name of the builtin
