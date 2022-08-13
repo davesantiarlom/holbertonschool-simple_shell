@@ -1,5 +1,4 @@
 #include "shell.h"
-#include "shell.h"
 
 /**
 * free_memory - A function that frees all the memory allocated.
@@ -8,18 +7,18 @@
 */
 
 void free_memory(char **command){
-    size_t i = 0;
+	size_t i = 0;
 
-        if (command == NULL)
-            return;
-        while (command[i]){
-            free(command[i]);
-            i++;
-        }
+	if (command == NULL)
+		return;
+	while (command[i]){
+	free(command[i]);
+		i++;
+	}
 
-    if (command[i] == NULL)
-        free(command[i]);
-        free(command);
+	if (command[i] == NULL)
+	free(command[i]);
+	free(command);
 }
 
 /**
