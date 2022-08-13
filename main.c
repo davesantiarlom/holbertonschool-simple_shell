@@ -17,7 +17,7 @@ int main(void)
 	int counter = 0;
     /*(void)ac;*/
 	signal(SIGINT, handle);
-	while(1)
+	while (1)
 	{
 		counter++;
 		int_mode = isatty(STDIN_FILENO);
@@ -32,10 +32,10 @@ int main(void)
 	{
 		command = split(buffer);
 
-		if(_strcmp(command[0], "exit") == 0)
+		if (_strcmp(command[0], "exit") == 0)
 			shell_exit(command);
 
-		if(chars_read == -1)
+		if (chars_read == -1)
 			return (EXIT_FAILURE);
 
 	}

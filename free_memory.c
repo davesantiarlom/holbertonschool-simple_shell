@@ -14,7 +14,7 @@ void free_memory(char **command)
 		return ();
 
 	while (command[i])
-  {
+	{
 		free(command[i]);
 		i++;
 	}
@@ -35,7 +35,7 @@ void shell_exit(char **command)
 	int status = 0;
 
 	if (command[1] == NULL)
-  {
+	{
 		free_memory(command);
 		exit(EXIT_SUCCESS);
 	}
