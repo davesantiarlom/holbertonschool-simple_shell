@@ -6,7 +6,9 @@
 * Return: Nothing.
 */
 
-void handle(int signals){
+void handle(int signals) {
+
 	(void)signals;
 	write(STDOUT_FILENO, "\n$ ", 4);
+
 }

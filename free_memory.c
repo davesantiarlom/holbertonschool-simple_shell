@@ -6,8 +6,8 @@
 * Return: Nothing.
 */
 
-void free_memory(char **command) {
-
+void free_memory(char **command)
+{
   size_t i = 0;
 
 	if (command == NULL)
@@ -29,8 +29,10 @@ void free_memory(char **command) {
 * Return: Nothing.
 */
 
-void shell_exit(char **command){
+void shell_exit(char **command)
+{
 	int status = 0;
+
 	if (command[1] == NULL){
 		free_memory(command);
 		exit(EXIT_SUCCESS);
