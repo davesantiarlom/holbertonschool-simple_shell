@@ -2,9 +2,7 @@
 
 /**
  * main - A function that runs our shell.
- * @ac: The number of buffered arguments.
- * @av: The pointer to array of buffered arguments.
- * @env: The pointer to array of enviromental variables.
+ *
  * Return: Always 0.
  */
 

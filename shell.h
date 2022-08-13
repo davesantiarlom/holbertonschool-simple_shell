@@ -12,12 +12,15 @@
 #include <fcntl.h>
 #include <signal.h>
 
-/* Builtin Struct
+/* 
+ * Builtin Struct
  * struct builtins_s - Struct for builtins names to the function
  * @name: Name of the builtin
  * @func: Pointer to function to call when name is bufferted
  */
-typedef struct builtin{
+
+typedef struct builtin
+{
 	char *name;
 	int (*func)();
 } builtin;
