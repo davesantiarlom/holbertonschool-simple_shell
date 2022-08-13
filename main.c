@@ -8,35 +8,36 @@
  * Return: Always 0.
  */
 
-int main()
+int main(void)
 {
-    int int_mode;
-    char *buffer = NULL, **command = NULL;
-    size_t buf_size = 0;
-    ssize_t chars_read = 0;
-    int counter=0;
+	int int_mode;
+	char *buffer = NULL, **command = NULL;
+	size_t buf_size = 0;
+	ssize_t chars_read = 0;
+	int counter = 0;
     /*(void)ac;*/
-    signal(SIGINT, handle);
-    while(1){
-        counter++;
-        int_mode = isatty(STDIN_FILENO);
+	signal(SIGINT, handle);
+	while(1)
+	{
+		counter++;
+		int_mode = isatty(STDIN_FILENO);
 
-        if (int_mode == 1)
-            write(STDOUT_FILENO, "$ ", 2);
-        }
+		if (int_mode == 1)
+			write(STDOUT_FILENO, "$ ", 2);
+	}
 
-        chars_read = getline(&buffer, &buf_size, stdin);
+	chars_read = getline(&buffer, &buf_size, stdin);
 
-        if (chars_read != EOF){
-            command = split(buffer);
+	if (chars_read != EOF)
+	{
+		command = split(buffer);
 
-            if(_strcmp(command[0], "exit") == 0){
-                shell_exit(command);
-            }
+		if(_strcmp(command[0], "exit") == 0)
+			shell_exit(command);
 
-            if(chars_read == -1){
-                return (EXIT_FAILURE);
-            }
-        }
-    return (EXIT_SUCCESS);
+		if(chars_read == -1)
+			return (EXIT_FAILURE);
+
+	}
+	return (EXIT_SUCCESS);
 }
