@@ -8,18 +8,18 @@
 
 void free_memory(char **command)
 {
-  size_t i = 0;
+	size_t i = 0;
 
 	if (command == NULL)
-    return();
+		return();
 
 	while (command[i]){
-    free(command[i]);
+		free(command[i]);
 		i++;
-  }
+	}
 
 	if (command[i] == NULL)
-	  free(command[i]);
+		free(command[i]);
 	free(command);
 }
 
@@ -37,6 +37,7 @@ void shell_exit(char **command)
 		free_memory(command);
 		exit(EXIT_SUCCESS);
 	}
+
 	status = _atoi(command[1]);
 	free_memory(command);
 	exit(status);
