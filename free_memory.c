@@ -30,10 +30,10 @@ void free_memory(char **command){
 void shell_exit(char **command){
 	int status = 0;
 	if (command[1] == NULL){
-		free_dp(command);
+		free_memory(command);
 		exit(EXIT_SUCCESS);
 	}
 	status = _atoi(command[1]);
-	free_dp(command);
+	free_memory(command);
 	exit(status);
 }
