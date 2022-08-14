@@ -6,18 +6,21 @@
 * Return: Nothing.
 */
 
-void free_memory(char **command){
+void free_memory(char **command)
+{
 	size_t i = 0;
 
 	if (command == NULL)
-		return (0);
-	while (command[i]){
-	free(command[i]);
+		return ();
+
+	while (command[i])
+	{
+		free(command[i]);
 		i++;
 	}
 
 	if (command[i] == NULL)
-	free(command[i]);
+		free(command[i]);
 	free(command);
 }
 
@@ -27,12 +30,16 @@ void free_memory(char **command){
 * Return: Nothing.
 */
 
-void shell_exit(char **command){
+void shell_exit(char **command)
+{
 	int status = 0;
-	if (command[1] == NULL){
+
+	if (command[1] == NULL)
+	{
 		free_memory(command);
 		exit(EXIT_SUCCESS);
 	}
+
 	status = _atoi(command[1]);
 	free_memory(command);
 	exit(status);
