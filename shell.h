@@ -34,5 +34,6 @@ void shell_exit(char **command);
 void free_memory(char **command);
 int create_child(char **command, char *buffer, char **env, int counter);
 void print_error(char *buffer, int counter, char **argv);
-
+int path_command(char **command);
+char *build(char *token, char *value);
 #endif

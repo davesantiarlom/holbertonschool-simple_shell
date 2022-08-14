@@ -10,7 +10,7 @@
 
 int main(int ac, char **av, char **env)
 {
-	int int_mode;
+	int int_mode, statue = 1;
 	char *buffer = NULL, **command = NULL;
 	size_t buf_size = 0;
 	ssize_t chars_read = 0;
@@ -18,7 +18,7 @@ int main(int ac, char **av, char **env)
 
   (void)ac;
 	signal(SIGINT, handle);
-	while (1)
+	while (statue)
 	{
 		counter++;
 		int_mode = isatty(STDIN_FILENO);
@@ -43,5 +43,5 @@ int main(int ac, char **av, char **env)
 
 	}
 
-	return (EXIT_SUCCESS);
+	return (statue);
 }
