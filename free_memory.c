@@ -11,7 +11,7 @@ void free_memory(char **command)
 	size_t i = 0;
 
 	if (command == NULL)
-		return ();
+		return;
 
 	while (command[i])
 	{

@@ -32,6 +32,7 @@ char **split(char *buffer);
 void handle(int signals);
 void shell_exit(char **command);
 void free_memory(char **command);
-void create_child(char **command, char av, char **env, int counter);
+int create_child(char **command, char *buffer, char **env, int counter);
+void print_error(char *buffer, int counter, char **argv);
 
 #endif

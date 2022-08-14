@@ -34,16 +34,6 @@ int _atoi(char *string)
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- * Return: On success 1, or -1 on error.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
  * _strcmp - a function that compares two strings.
  * @str1: an input string
  * @str2: an input string
