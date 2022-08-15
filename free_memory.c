@@ -35,7 +35,7 @@ void shell_exit(char **tokens){
 		free_memory(tokens);
 		exit(EXIT_SUCCESS);
 	}
-	status = atoi(tokens[1]);
+	status = _atoi(tokens[1]);
 	free_memory(tokens);
 	exit(status);
 }

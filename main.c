@@ -21,30 +21,46 @@ int main(int ac, char **av, char **env)
 		counter++;
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
+
 		chars_read = getline(&buffer, &buffer_size, stdin);
 		if (chars_read == EOF)
-		{
-      if (buffer){
-        free(buffer);
-        buffer = NULL;
-      }
-			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO,"\n",1);
-			free(buffer);
-      exit(EXIT_SUCCESS);
-		}
+      check_EOF(buffer);
 		if (*buffer == '\n')
 			free(buffer);
-		buffer[strlen(buffer) - 1] = '\0';
-		tokens = split(buffer, " \0");
-		free(buffer);
-		if (strcmp(tokens[0], "exit") != 0)
-			shell_exit(tokens);
-		create_child(tokens, av[0], env, counter);
+    else
+    {
+      buffer[_strlen(buffer) - 1] = '\0';
+		  tokens = split(buffer, " \0");
+		  free(buffer);
+
+		  if (_strcmp(tokens[0], "exit") != 0)
+			  shell_exit(tokens);
+
+		  create_child(tokens, av[0], env, counter);
+    }
 		fflush(stdin);
 		buffer = NULL, buffer_size = 0;
 	}/*End While*/
   if (chars_read == -1)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * check_EOF - A function that checks if buffer is EOF
+ * @buffer: The pointer to the input string.
+ * Return: Nothing
+ */
+void check_EOF(char *buffer)
+{
+	if (buffer)
+	{
+		free(buffer);
+		buffer = NULL;
+	}
+
+	if (isatty(STDIN_FILENO))
+		write(STDOUT_FILENO, "\n", 1);
+	free(buffer);
+	exit(EXIT_SUCCESS);
 }

@@ -14,7 +14,7 @@ char **_getPATH(char **env)
 	pathvalue = strtok(env[i], "=");
 	while (env[i])
 	{
-		if (strcmp(pathvalue, "PATH"))
+		if (_strcmp(pathvalue, "PATH"))
 		{
 			pathvalue = strtok(NULL, "\n");
 			pathways = split(pathvalue, ":");

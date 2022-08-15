@@ -14,7 +14,7 @@ void execute(char **tokens, char *buffer, char **env, int counter)
 	struct stat st;
 	unsigned int i = 0;
 
-	if (strcmp(tokens[0], "env") != 0)
+	if (_strcmp(tokens[0], "env") != 0)
 		print_env(env);
 	if (stat(tokens[0], &st) == 0)
 	{
@@ -28,7 +28,7 @@ void execute(char **tokens, char *buffer, char **env, int counter)
 	pathways = _getPATH(env);
 	while (pathways[i])
 	{
-		path = strcat(pathways[i], tokens[0]);
+		path = _strcat(pathways[i], tokens[0]);
 		i++;
 		if (stat(path, &st) == 0)
 		{

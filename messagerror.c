@@ -10,10 +10,10 @@
 void messagerror(char **tokens, char *buffer, int counter)
 {
 	char c = counter + '0';
-	write(STDOUT_FILENO, buffer, strlen(buffer));
+	write(STDOUT_FILENO, buffer, _strlen(buffer));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, &c, 1);
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, tokens[0], strlen(tokens[0]));
-	write(STDOUT_FILENO, ": Not Found\n", 12);
+	write(STDOUT_FILENO, tokens[0], _strlen(tokens[0]));
+	write(STDOUT_FILENO, ": not found\n", 12);
 }
