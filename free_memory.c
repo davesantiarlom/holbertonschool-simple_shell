@@ -2,45 +2,40 @@
 
 /**
 * free_memory - A function that frees all the memory allocated.
-* @command: The pointer to allocated memory to free.
+* @tokens: The pointer to allocated memory to free.
 * Return: Nothing.
 */
 
-void free_memory(char **command)
+void free_memory(char **tokens)
 {
 	size_t i = 0;
 
-	if (command == NULL)
+	if (tokens == NULL)
 		return;
 
-	while (command[i])
+	while (tokens[i])
 	{
-		free(command[i]);
+		free(tokens[i]);
 		i++;
 	}
 
-	if (command[i] == NULL)
-		free(command[i]);
-	free(command);
+	if (tokens[i] == NULL)
+		free(tokens[i]);
+	free(tokens);
 }
 
 /**
-* shell_exit - A function that exits the shell.
-* @command: The pointer to tokenized command.
-* Return: Nothing.
-*/
-
-void shell_exit(char **command)
-{
+ * shell_exit - A function that exits the shell.
+ * @tokens: The pointer to split tokens.
+ * Return: Nothing.
+ */
+void shell_exit(char **tokens){
 	int status = 0;
-
-	if (command[1] == NULL)
-	{
-		free_memory(command);
+	if (tokens[1] == NULL){
+		free_memory(tokens);
 		exit(EXIT_SUCCESS);
 	}
-
-	status = _atoi(command[1]);
-	free_memory(command);
+	status = atoi(tokens[1]);
+	free_memory(tokens);
 	exit(status);
 }

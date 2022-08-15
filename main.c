@@ -10,38 +10,41 @@
 
 int main(int ac, char **av, char **env)
 {
-	int int_mode, statue = 1;
-	char *buffer = NULL, **command = NULL;
-	size_t buf_size = 0;
+	char *buffer = NULL, **tokens = NULL;
+	size_t buffer_size = 0;
 	ssize_t chars_read = 0;
 	int counter = 0;
 
-  (void)ac;
-	signal(SIGINT, handle);
-	while (statue)
+	(void)ac;
+	while (1)
 	{
 		counter++;
-		int_mode = isatty(STDIN_FILENO);
-
-		if (int_mode == 1)
+		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
-
-		chars_read = getline(&buffer, &buf_size, stdin);
-
-		if (chars_read != EOF)
+		chars_read = getline(&buffer, &buffer_size, stdin);
+		if (chars_read == EOF)
 		{
-			command = split(buffer);
-
-			if (_strcmp(command[0], "exit") == 0)
-				shell_exit(command);
-
-			if (chars_read == -1)
-				return (EXIT_FAILURE);
-
-			create_child(command, av[0], env, counter);
+      if (buffer){
+        free(buffer);
+        buffer = NULL;
+      }
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO,"\n",1);
+			free(buffer);
+      exit(EXIT_SUCCESS);
 		}
-
-	}
-
-	return (statue);
+		if (*buffer == '\n')
+			free(buffer);
+		buffer[strlen(buffer) - 1] = '\0';
+		tokens = split(buffer, " \0");
+		free(buffer);
+		if (strcmp(tokens[0], "exit") != 0)
+			shell_exit(tokens);
+		create_child(tokens, av[0], env, counter);
+		fflush(stdin);
+		buffer = NULL, buffer_size = 0;
+	}/*End While*/
+  if (chars_read == -1)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

@@ -12,28 +12,14 @@
 #include <fcntl.h>
 #include <signal.h>
 
-/*
- * Builtin Struct
- * struct builtins_s - Struct for builtins names to the function
- * @name: Name of the builtin
- * @func: Pointer to function to call when name is bufferted
- */
+int main(int ac, char **av, char **env);
+char **split(char *buffer, const char *delim);
+void free_memory(char **tokens);
+void shell_exit(char **tokens);
+void execute(char **tokens, char *buffer, char **env, int counter);
+void create_child(char **tokens, char *buffer, char **env, int counter);
+void print_env(char **env);
+char **_getPATH(char **env);
+void messagerror(char **tokens, char *buffer, int counter);
 
-typedef struct builtin
-{
-	char *name;
-	int (*func)();
-} builtin;
-
-int _strlen(char *s);
-int _strcmp(char *s1, char *s2);
-int _atoi(char *str);
-char **split(char *buffer);
-void handle(int signals);
-void shell_exit(char **command);
-void free_memory(char **command);
-int create_child(char **command, char *buffer, char **env, int counter);
-void print_error(char *buffer, int counter, char **argv);
-int path_command(char **command);
-char *build(char *token, char *value);
 #endif
