@@ -10,9 +10,9 @@ Let us consider a flowchart that will help us to understand the operation of the
 
 ### Installation and compilation :bulb:
 
-Clone this repo: 'git@github.com:davesantiarlom/holbertonschool-simple_shell.git'
-Compile: 'gcc -Wall -Werror -Wextra -pedantic *.c -o hsh'
-To run interactve: './hsh'
+Clone this repo - '''git@github.com:davesantiarlom/holbertonschool-simple_shell.git'''
+Compile - '''gcc -Wall -Werror -Wextra -pedantic *.c -o hsh'''
+To run interactve - '''./hsh'''
 
 
 ### Authors :bulb:
