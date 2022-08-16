@@ -7,6 +7,7 @@ Simple shell is a UNIX command interpreter that replicates core functionalities 
 
 Let us consider a flowchart that will help us to understand the operation of the program in a logical way.
 
+[Whats-App-Image-2022-08-16-at-6-18-28-PM.jpg](https://postimg.cc/VrJrQtj3)
 
 ### Installation and compilation :bulb:
 
