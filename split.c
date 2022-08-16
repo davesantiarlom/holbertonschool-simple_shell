@@ -11,22 +11,19 @@ char **split(char *buffer, const char *delim)
 {
 	char *token = NULL, **tokens = NULL;
 	size_t buffer_size = 0;
-	/*const char delim[] = " \t\n";*/
 	int i = 0;
 
 	if (buffer == NULL)
 		return (NULL);
-  buffer_size = _strlen(buffer);
+  	buffer_size = _strlen(buffer);
 	tokens = malloc((buffer_size + 1) * sizeof(char *));
-
 	if (tokens == NULL)
 	{
 		perror("WARNING! Unable to allocate memory");
 		free(buffer);
-    free_memory(tokens);
+		free_memory(tokens);
 		exit(EXIT_FAILURE);
 	}
-
 	token = strtok(buffer, delim);
 	while (token != NULL)
 	{
@@ -37,10 +34,9 @@ char **split(char *buffer, const char *delim)
 			return (NULL);
 		}
 		_strcpy(tokens[i],token);
-    token = strtok(NULL, delim);
+    		token = strtok(NULL, delim);
 		i++;
 	}
-
 	tokens[i] = NULL;
 	return (tokens);
 }
