@@ -25,7 +25,7 @@ void execute(char **tokens, char *buffer, char **env, int counter)
       exit(EXIT_FAILURE);
 		}
 	}
-	pathways = _getPATH(env);
+	pathways = getPath(env);
 	while (pathways[i])
 	{
 		path = _strcat(pathways[i], tokens[0]);

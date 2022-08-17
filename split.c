@@ -29,7 +29,7 @@ char **split(char *buffer, const char *delim)
 	{
 		tokens[i] = malloc(_strlen(token) + 1);
 		if (tokens[i] == NULL){
-			perror("Unable to allocate buffer");
+			perror("WARNING! Unable to allocate buffer");
 			free_memory(tokens);
 			return (NULL);
 		}

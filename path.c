@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _getPATH - A function to gets value from.
+ * getPath - A function to gets value from.
  * env variable PATH.
  * @env: The pointer to enviromental variables.
  * Return: All split pathways for tokens.
  */
-char **_getPATH(char **env)
+char **getPath(char **env)
 {
 	char *pathvalue = NULL, **pathways = NULL;
 	unsigned int i = 0;
