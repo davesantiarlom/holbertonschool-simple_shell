@@ -14,6 +14,7 @@ Let us consider a flowchart that will help us to understand the operation of the
 * Clone this repo - ```git@github.com:davesantiarlom/holbertonschool-simple_shell.git```
 * Compile - ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```
 * To run interactve - ``` ./hsh ```
+* If you want to debugg - ```valgrind --leak-check=full ./hsh```
 
 
 ### Authors :bulb:
