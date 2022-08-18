@@ -1,0 +1,71 @@
+.TH SimpleShell 1 "Agosto 2022" "Linux" "Simple Shell User Manual"
+
+.SH NAME
+.B Simple Shell - a simple UNIX command interpreter.
+
+.SH SYNOPSIS
+.nf
+.B int main(int ac, char **av, char **env)
+.PP
+.BI "#include ''shell.h''"
+.PP
+.BI "char **split(char *buffer, const char *delim);"
+.BI "void free_memory(char **tokens);"
+.BI "void shell_exit(char **tokens);"
+.BI "void execute(char **tokens, char *buffer, char **env, int counter);"
+.BI "void create_child(char **tokens, char *buffer, char **env, int counter);"
+.BI "void print_env(char **env);"
+.BI "char **getPath(char **env);"
+.BI "void messagerror(char **tokens, char *buffer, int counter);"
+
+.BI - USAGE:
+
+.B ./hsh [COMMAND] [ARGUMENT]
+
+.SH DESCRIPTION
+Simulates a basic command interpreter as the default sh in the terminal.
+
+.SH EXAMPLES
+
+This shell can be executed in two different ways:
+
+.I INTERACTIVE
+.B mode example:
+
+.B $ ./hsh
+
+.B $ /bin/ls
+
+.B $ AUTHORS  README.md  create_child.c  execute.c  free_memory.c  functions_string.c  hsh  main.c  man_1_simple_shell  messagerror.c  path.c  print_env.c  shell.h	split.c
+
+.B $ exit
+
+.SH COMPILATION
+You can compile the shell with gcc and different flags as you can see below:
+
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+.I "shell"
+will be the name of the executable.
+
+In addition, after compiling the program, you can run it with the 
+.I valgrind 
+tool, which helps in debugging memory and performance problems of a program. For this, we will provide you with the command ready with the respective flags that will check the correct operation of the shell:
+
+.B valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --vgdb=no ./hsh
+
+.SH BUILT-INS
+These are commands or functions that are internal to the shell, that is, they do not need external programs to be executed.
+
+These built-ins commands are implemented in the shell:
+
+.B exit -
+exits the shell.
+
+.B env - 
+prints the current environment.
+
+.SH AUTHOR
+
+David Santiago Arias 
+Avelino Carvajal
