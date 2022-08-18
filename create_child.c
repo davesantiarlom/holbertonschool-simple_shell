@@ -12,9 +12,9 @@ void create_child(char **tokens, char *buffer, char **env, int counter)
 {
 	int pid = 0;
 	int status = 0;
-  int wait_error = 0;
+  	int wait_error = 0;
   
-  pid = fork();
+  	pid = fork();
 	if (pid < 0){
 		perror("Error: Out of place");
 		free_memory(tokens);
