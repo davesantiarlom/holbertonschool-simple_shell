@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * create_child - A function that creates a sub process.
+ * create_child - A function that creates a child process.
  * @tokens: The pointer to tokenized tokens
  * @buffer: The pointer to the buffer of shell.
  * @env: The pointer to the enviromental variables.
@@ -17,7 +17,7 @@ void create_child(char **tokens, char *buffer, char **env, int counter)
 	pid = fork();
 	if (pid < 0)
 	{
-		perror("Error: Out of place");
+		perror("Warning!: Out of place");
 		free_memory(tokens);
 		exit(EXIT_FAILURE);
 	}
