@@ -10,6 +10,7 @@
 void messagerror(char **tokens, char *buffer, int counter)
 {
 	char c = counter + '0';
+
 	write(STDOUT_FILENO, buffer, _strlen(buffer));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, &c, 1);

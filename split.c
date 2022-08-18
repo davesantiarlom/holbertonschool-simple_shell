@@ -15,7 +15,7 @@ char **split(char *buffer, const char *delim)
 
 	if (buffer == NULL)
 		return (NULL);
-  	buffer_size = _strlen(buffer);
+	buffer_size = _strlen(buffer);
 	tokens = malloc((buffer_size + 1) * sizeof(char *));
 	if (tokens == NULL)
 	{
