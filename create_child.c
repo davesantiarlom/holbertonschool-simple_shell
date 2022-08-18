@@ -16,13 +16,13 @@ void create_child(char **tokens, char *buffer, char **env, int counter)
 
 	pid = fork();
 	if (pid < 0)
-  {
+	{
 		perror("Error: Out of place");
 		free_memory(tokens);
 		exit(EXIT_FAILURE);
 	}
 	if (pid == 0)
-  {
+	{
 		execute(tokens, buffer, env, counter);
 		free_memory(tokens);
 	}

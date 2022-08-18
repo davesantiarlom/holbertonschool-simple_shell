@@ -5,9 +5,8 @@
  * @ac: The number of buffered arguments.
  * @av: The pointer to array of buffered arguments.
  * @env: The pointer to array of enviromental variables.
- * Return: Always 0.
+ * Return: Always 0 Success.
  */
-
 int main(int ac, char **av, char **env)
 {
 	char *buffer = NULL, **tokens = NULL;
@@ -48,10 +47,9 @@ int main(int ac, char **av, char **env)
 			}
 			create_child(tokens, av[0], env, counter);
 		}
-
 		fflush(stdin);
 		buffer = NULL, buffer_size = 0;
-	}/*End While*/
+	}
 	if (chars_read == -1)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);

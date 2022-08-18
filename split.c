@@ -28,13 +28,14 @@ char **split(char *buffer, const char *delim)
 	while (token != NULL)
 	{
 		tokens[i] = malloc(_strlen(token) + 1);
-		if (tokens[i] == NULL){
+		if (tokens[i] == NULL)
+		{
 			perror("WARNING! Unable to allocate buffer");
 			free_memory(tokens);
 			return (NULL);
 		}
-		_strcpy(tokens[i],token);
-    		token = strtok(NULL, delim);
+		_strcpy(tokens[i], token);
+		token = strtok(NULL, delim);
 		i++;
 	}
 	tokens[i] = NULL;

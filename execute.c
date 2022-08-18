@@ -37,7 +37,7 @@ void execute(char **tokens, char *buffer, char **env, int counter)
 				perror(buffer);
 				free_memory(pathways);
 				free_memory(tokens);
-        exit(EXIT_FAILURE);
+				exit(EXIT_FAILURE);
 			}
 			return;
 		}
