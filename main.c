@@ -24,7 +24,7 @@ int main(int ac, char **av, char **env)
 		chars_read = getline(&buffer, &buffer_size, stdin);
 		if (chars_read == EOF)
 		{
-		      	if (buffer)
+		      	if (buffer != NULL)
 			{
 				free(buffer);
 				buffer = NULL;
@@ -39,10 +39,12 @@ int main(int ac, char **av, char **env)
 		else
 		{
 			buffer[_strlen(buffer) - 1] = '\0';
-			tokens = split(buffer, " \0");
+			tokens = split(buffer, " \t\n\0");
 			free(buffer);
-			if (_strcmp(tokens[0], "exit") != 0)
-				shell_exit(tokens);
+			if (_strcmp(tokens[0], "exit") != 0){
+				free_memory(tokens);
+        exit(EXIT_SUCCESS);
+      }
 			create_child(tokens, av[0], env, counter);
 		}
 		fflush(stdin);
